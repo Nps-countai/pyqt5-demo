@@ -18,36 +18,20 @@ class Mywindow(QMainWindow):
         
         self.b1 = QtWidgets.QPushButton(self)
         self.b1.setText("Click me")
-        self.b1.move(70,70)
-        self.b1.clicked.connect(clicked)
+        self.b1.clicked.connect(self.clicked)
 
 
     def clicked(self):
         self.label.setText("You Pressed he BUtton")
+        self.update()
+    
+    def update(self):
+        self.label.adjustSize()
 
-
-
-
-
-
-def clicked():
-    print("Clicked!")
 
 def window():
     app = QApplication(sys.argv)
-    win  =Mywindow()
-    win.setGeometry(200,200,300,300)
-    win.setWindowTitle("Working")
-    label = QtWidgets.QLabel(win)
-    label.setText("My first Label")
-    label.move(50,50)
-    
-    b1 = QtWidgets.QPushButton(win)
-    b1.setText("Click me")
-    b1.move(70,70)
-    b1.clicked.connect(clicked)
-    
-    
+    win  =Mywindow()      
     win.show()
     sys.exit(app.exec_())
     
